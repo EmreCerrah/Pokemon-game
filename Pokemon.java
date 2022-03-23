@@ -4,43 +4,40 @@ public class Pokemon {
     private int health;
     private int ac;
     private int power;
-    protected int dodgeChance;
+    final int firstAC;
 
     public Pokemon(String name, int health, int ac, int power) {
         this.name = name;
         this.health = health;
         this.ac = ac;
-        this.dodgeChance=ac;
+        this.firstAC=ac;
         this.power = power;
     }
 
-    public int hit(){
+    public void hit(Pokemon foe){
         int combo= (int) (Math.random() * (10))+power;
-        ac=dodgeChance;
-        return combo;
+        ac=firstAC;
+        int d20= (int) (Math.random() * (20))+power;
+        if (d20>foe.getAc()){
+            foe.setHealth(foe.getHealth()-combo);
+            System.out.println(name+" "+combo+" hasar verdi"+"\n");}
+        else System.out.println(name+" hasar veremedi \n");
     }
 
     public void dodge(){
-        ac+=5;
+        ac+=7;
     }
 
-public void info(){
-    System.out.println("Tur Sırası "+ name);
-    System.out.print("Can : "+health+" ");
-    System.out.println("kaçınma şansı : %"+ac);
+    public void info(){
+        System.out.println("Tur Sırası "+ name);
+        System.out.print("Can : "+health+" ");
+        System.out.println("kaçınma şansı : %"+ac);
 
 }
 
-    public int getDodgeChance() {
-        return dodgeChance;
-    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getHealth() {
@@ -55,15 +52,4 @@ public void info(){
         return ac;
     }
 
-    public void setAc(int ac) {
-        this.ac = ac;
-    }
-
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
-    }
 }
