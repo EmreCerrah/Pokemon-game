@@ -9,7 +9,8 @@ public class Charmenders extends Pokemon{
         if (foe.getAttribute()=="grass") {combo = hit(foe) * 5;
        }else {combo= hit(foe)*2; }
            foe.setHealth(foe.getHealth() - combo);
-           System.out.println("özelsaldırı " + combo + " hasar verdi");
+           System.out.println("özelsaldırı " + combo + " hasar verdi\n");
            setMana(5);
+        setAc(super.firstAC);
        }
        }

@@ -5,7 +5,7 @@ public abstract class Pokemon {
     private int health;
     private int ac;
     private int power;
-    final int firstAC;
+    final protected int firstAC;
     private int mana;
     private String attribute;
     public Pokemon(String name, int health, int ac, int power, String attribute) {
@@ -23,7 +23,7 @@ public abstract class Pokemon {
             System.out.println(name+" "+combo+" hasar verdi"+"\n");}
         else System.out.println(name+" hasar veremedi \n");
         ac=firstAC;
-        mana++;
+        mana+=2;
     }
 
     public int hit(Pokemon foe){
@@ -36,6 +36,8 @@ public abstract class Pokemon {
 
     public void dodge(){
         ac+=7;
+        mana++;
+        System.out.println(name+"\'ın savunması arttı.\n");
     }
 
     public void info(){
@@ -47,6 +49,10 @@ public abstract class Pokemon {
 }
    void special(Pokemon foe){
 
+    }
+
+    public void setAc(int ac) {
+        this.ac = ac;
     }
 
     public String getName() {
