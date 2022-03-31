@@ -5,9 +5,14 @@ public class Match {
     public static Scanner input;
         Pokemon player1;
         Pokemon player2;
-    public Match(Pokemon p1,Pokemon p2){
-        this.player1= p1;
-        this.player2=p2;
+    public Match(Pokemon p1,Pokemon p2){// hıza göre öncelik verme işlemini burda yapabilirim?
+        //if (p1.getSpeed()> p2.getSpeed()){
+            this.player1= p1;
+            this.player2=p2;
+        /*}else if (p2.getSpeed()> p1.getSpeed()){
+            this.player1= p2;
+            this.player2= p1;
+        }*/
     }
     public void runPvP(){
         input = new Scanner(System.in);
@@ -15,8 +20,10 @@ public class Match {
         intro();
 
         while (play){
+            System.out.println("Birinci Oyuncu");
             pcAction(player1, player2);
             if (isWin(player1,player2))break;
+            System.out.println("İkinci Oyuncu");
             pcAction(player2, player1);
             if (isWin(player2,player1))break;
         }

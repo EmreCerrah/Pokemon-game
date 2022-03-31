@@ -8,6 +8,7 @@ public abstract class Pokemon {
     final protected int firstAC;
     private int mana;
     private String attribute;
+    private int speed;
     public Pokemon(String name, int health, int ac, int power, String attribute) {
         this.name = name;
         this.health = health;
@@ -16,6 +17,7 @@ public abstract class Pokemon {
         this.power = power;
         this.mana = 3;
         this.attribute=attribute;
+        this.speed= ac/3;
     }
     public void attack(Pokemon foe){
         int combo=hit(foe);
@@ -81,5 +83,9 @@ public abstract class Pokemon {
 
     public String getAttribute() {
         return attribute;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 }

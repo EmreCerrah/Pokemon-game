@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         ArrayList <Pokemon> pokedex=new ArrayList<>();
 
         pokemonSetup(pokedex);
@@ -24,13 +23,13 @@ public class Main {
     }
 
     private static void startMatch(int i,ArrayList<Pokemon> pokedex) {
-        int pick= (int) (Math.random() * pokedex.size());// aynı pokemon seçme sorunu?
+        int pick= (int) (Math.random() * pokedex.size()-1);// aynı pokemon seçme sorunu?
         Match round1 = new Match(pokedex.get(i),pokedex.get(pick));
-            round1.runPvC();
+        round1.runPvC();
     }
     private static void startMatch(int i,int j,ArrayList<Pokemon> pokedex){
         Match round1 = new Match(pokedex.get(i),pokedex.get(j));// aynı pokemon seçme sorunu?
-        round1.runPvC();
+        round1.runPvP();
     }
 
     private static int choosePokemon(ArrayList<Pokemon> pokedex) {
@@ -49,7 +48,6 @@ public class Main {
         return input.nextInt();
     }
     public static ArrayList<Pokemon> pokemonSetup(ArrayList <Pokemon> pokedex){
-        //ArrayList <Pokemon> pokedex = new ArrayList <>();
         Pokemon charmender= new Charmenders("Charmender",70,10,9, "fire");
         Pokemon squirtle= new Squirtles("Squirtle",90,13,5,"water");
         Pokemon bulbasaur= new Bulbasaurs("Bulbasaur",80,8,9,"grass");
@@ -57,7 +55,6 @@ public class Main {
         pokedex.add(charmender);
         pokedex.add(squirtle);
         pokedex.add(bulbasaur);
-
 
         return pokedex;
     }
