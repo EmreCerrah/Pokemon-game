@@ -1,6 +1,7 @@
 # Pokemon Game
 ---
-Temel olarak NES'deki Pokemon oyununun dövüş sistemini Java ile simüle ederek yaptığım OOP çalışma.
+
+Basically my OOP work by simulating the Pokemon game's combat system on the NES with Java.
 
 # Installation
 ---
